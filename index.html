@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora Avançada de Massas de Pizza</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Pizzaiolo • calculadora metodológica</p>
+      <h1>Calculadora Avançada de Massas de Pizza</h1>
+      <p class="lead">Napolitana clássica AVPN, Napolitana produzível, Neo-napolitana, Romana, Detroit, Americana e Brasileira.</p>
+    </div>
+  </header>
+
+  <main class="wrap grid-layout">
+    <section class="panel inputs">
+      <h2>Entradas</h2>
+
+      <div class="section-title">Estilo e formato</div>
+      <div class="grid two">
+        <label>Estilo
+          <select id="style"></select>
+        </label>
+        <label>Formato
+          <select id="shape">
+            <option value="round">Redonda</option>
+            <option value="pan">Forma / assadeira</option>
+          </select>
+        </label>
+        <label>Quantidade
+          <input id="quantity" type="number" min="1" step="1" value="6" />
+        </label>
+        <label>Diâmetro da pizza (cm)
+          <input id="diameter" type="number" min="10" step="0.5" value="29" />
+        </label>
+        <label>Comprimento da forma (cm)
+          <input id="panLength" type="number" min="1" step="0.5" value="25" />
+        </label>
+        <label>Largura da forma (cm)
+          <input id="panWidth" type="number" min="1" step="0.5" value="20" />
+        </label>
+      </div>
+
+      <div class="section-title">Farinha</div>
+      <div class="grid two">
+        <label>Farinha
+          <select id="flourPreset"></select>
+        </label>
+        <label>Proteína (%)
+          <input id="protein" type="number" min="7" max="16" step="0.1" value="12" />
+        </label>
+        <label>W da farinha
+          <input id="flourW" type="number" min="120" max="450" step="5" value="300" />
+        </label>
+        <label>P/L
+          <input id="pl" type="number" min="0.2" max="1.5" step="0.05" value="0.60" />
+        </label>
+        <label>Absorção (%)
+          <input id="absorption" type="number" min="45" max="75" step="0.5" value="58" />
+        </label>
+        <label>Falling Number
+          <input id="fallingNumber" type="number" min="150" max="450" step="5" value="300" />
+        </label>
+      </div>
+
+      <div class="section-title">Forno e superfície</div>
+      <div class="grid two">
+        <label>Temperatura máxima do forno (°C)
+          <input id="ovenTemp" type="number" min="180" max="520" step="5" value="250" />
+        </label>
+        <label>Superfície de assamento
+          <select id="surface">
+            <option value="none">Sem pedra/chapa</option>
+            <option value="tray">Assadeira comum</option>
+            <option value="stone">Pedra refratária</option>
+            <option value="steel">Chapa de aço</option>
+            <option value="pan">Forma Detroit/pan</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="section-title">Fermentação</div>
+      <div class="grid two">
+        <label>Preset de tempo
+          <select id="fermentationPreset"></select>
+        </label>
+        <label>Tipo de fermento
+          <select id="yeastType">
+            <option value="instant">Seco instantâneo</option>
+            <option value="activeDry">Seco ativo</option>
+            <option value="fresh">Fresco</option>
+            <option value="levain">Fermento natural / levain</option>
+          </select>
+        </label>
+        <label>Horas em temperatura ambiente
+          <input id="roomHours" type="number" min="0" max="120" step="0.5" value="5" />
+        </label>
+        <label>Temperatura ambiente (°C)
+          <input id="roomTemp" type="number" min="10" max="35" step="0.5" value="24" />
+        </label>
+        <label>Horas em geladeira
+          <input id="coldHours" type="number" min="0" max="120" step="0.5" value="19" />
+        </label>
+        <label>Temperatura da geladeira (°C)
+          <input id="coldTemp" type="number" min="1" max="12" step="0.5" value="5" />
+        </label>
+        <label>Umidade relativa do ar (%)
+          <input id="humidity" type="number" min="10" max="100" step="1" value="78" />
+        </label>
+        <label>Margem de segurança da massa (%)
+          <input id="doughMargin" type="number" min="0" max="10" step="0.5" value="0" />
+        </label>
+      </div>
+
+      <div class="section-title">Levain, se utilizado</div>
+      <div class="grid two">
+        <label>Hidratação do levain (%)
+          <input id="levainHydration" type="number" min="40" max="130" step="5" value="100" />
+        </label>
+        <label>Acidez desejada
+          <select id="levainAcidity">
+            <option value="low">Baixa</option>
+            <option value="medium" selected>Média</option>
+            <option value="high">Alta</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="section-title">Sobrescritas manuais opcionais</div>
+      <div class="grid two">
+        <label>Hidratação manual (%)
+          <input id="hydrationOverride" type="number" min="50" max="90" step="0.5" placeholder="automático" />
+        </label>
+        <label>Sal manual (%)
+          <input id="saltOverride" type="number" min="1" max="4" step="0.1" placeholder="automático" />
+        </label>
+        <label>Azeite/óleo manual (%)
+          <input id="oilOverride" type="number" min="0" max="8" step="0.1" placeholder="automático" />
+        </label>
+        <label>Açúcar manual (%)
+          <input id="sugarOverride" type="number" min="0" max="8" step="0.1" placeholder="automático" />
+        </label>
+        <label>Mel manual (%)
+          <input id="honeyOverride" type="number" min="0" max="8" step="0.1" placeholder="automático" />
+        </label>
+        <label>Fermento manual (%)
+          <input id="yeastOverride" type="number" min="0" max="5" step="0.001" placeholder="automático" />
+        </label>
+      </div>
+
+      <button id="calculateBtn">Calcular receita</button>
+    </section>
+
+    <section class="panel results">
+      <h2>Resultado</h2>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <footer class="wrap footer">
+    <p>Ferramenta caseira/técnica. Use como ponto de partida e calibre com seu forno, farinha e resultados reais.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
